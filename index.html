@@ -1,0 +1,41 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="#" data-page="home">Hem</a></li>
+            <li><a href="#" data-page="owner">Ägare</a></li>
+            <li><a href="#" data-page="contact">Katter</a></li>
+            <li><a href="#" data-page="about">Kundvagn</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="home" class="page active">
+        <h1>Välkommen till KittyStore!</h1>
+        <p>Här hittar du fantastiska kattraser från hela världen.</p>
+    </section>
+
+    <section id="katter" class="page">
+        <h2>Våra katter</h2>
+        <input type="text" id="searchInput" placeholder="Sök katt..."/>
+        <div id="catList"></div>
+        <div class="pagination">
+            <button id="prevbtn">Förgående</button>
+            <span id="pageInfo"></span>
+            <button id="nextBtn">Nästa</button>
+        </div>
+    </section>
+
+    <section id="cart" class="page">
+    <h2>Kundvagn</h2>
+    <div id="cartList"></div>
+
+    <form id="orderForm">
+      <input type="text" id="customerName" placeholder="Namn" required />
+      <input type="email" id="customerEmail" placeholder="E-post" required />
+      <textarea id="customerAddress" placeholder="Leveransadress" required></textarea>
+      <button type="submit">Skicka order</button>
+    </form>
+  </section>
+    
+</main>
