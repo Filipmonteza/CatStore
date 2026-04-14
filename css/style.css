@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #d7cdcd;
+  color: #222;
+}
+
+header {
+  background: #000000;
+  color: rgb(234, 224, 224);
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: rgb(244, 236, 236);
+  text-decoration: none;
+}
+
+main {
+  padding: 1rem;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+#catList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cat-card {
+  background: rgb(233, 224, 224);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cat-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+input, textarea, button {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  #catList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #catList {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+}
