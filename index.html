@@ -2,60 +2,18 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KittyStore</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="js/app.js" defer></script>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#" data-page="hem">Hem</a></li>
-        <li><a href="#" data-page="ägare">Ägare</a></li>
-        <li><a href="#" data-page="katter">Katter</a></li>
-        <li><a href="#" data-page="kundvagn">Kundvagn</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="navbar"></div>
 
   <main>
-    <section id="hem" class="page active">
-      <h1>Välkommen till KittyStore!</h1>
-      <p>Här hittar du fantastiska kattraser från hela världen.</p>
-    </section>
-
-    <section id="ägare" class="page">
-      <h2>Om ägaren</h2>
-      <p>Namn: John Doe</p>
-      <p>Epost: john.doe@example.com</p>
-      <p>Telefon: 073 123 45 67</p>
-    </section>
-
-    <section id="katter" class="page">
-      <h2>Våra katter</h2>
-      <input type="text" id="searchInput" placeholder="Sök katt..." />
-      <div id="catList"></div>
-      <div class="pagination">
-        <button id="prevBtn">Föregående</button>
-        <span id="pageInfo"></span>
-        <button id="nextBtn">Nästa</button>
-      </div>
-    </section>
-
-    <section id="kundvagn" class="page">
-      <h2>Kundvagn</h2>
-      <div id="cartList"></div>
-
-      <form id="orderForm">
-        <input type="text" id="customerName" placeholder="Namn" required />
-        <input type="email" id="customerEmail" placeholder="E-post" required />
-        <textarea id="customerAddress" placeholder="Leveransadress" required></textarea>
-        <button type="submit">Skicka order</button>
-      </form>
-    </section>
+    <h1>Välkommen till KittyStore!</h1>
+    <p>Här hittar du fantastiska kattraser från hela världen.</p>
   </main>
 
+  <script src="js/loadNavbar.js"></script>
 </body>
 </html>
