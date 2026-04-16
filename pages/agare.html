@@ -10,12 +10,31 @@
 
   <div id="navbar"></div>
 
-  <main>
-    <h2>Om ägaren</h2>
-    <p>Namn: John Doe</p>
-    <p>Epost: john.doe@example.com</p>
-    <p>Telefon: 073 123 45 67</p>
-  </main>
+<main>
+  <section class="owners-section">
+    <h2>Om ägarna</h2>
+
+    <div class="owners-grid">
+      <article class="owner-card">
+        <img src="../images/gubbe.png" alt="Leif" class="owner-photo" />
+        <div class="owner-info">
+          <h3>Leif</h3>
+          <p><strong>E-post:</strong> leif@example.com</p>
+          <p><strong>Telefon:</strong> 073 987 65 43</p>
+        </div>
+      </article>
+
+      <article class="owner-card">
+        <img src="../images/cat-sack.jpg" alt="Catja" class="owner-photo" />
+        <div class="owner-info">
+          <h3>Catja</h3>
+          <p><strong>E-post:</strong> catja@example.com</p>
+          <p><strong>Telefon:</strong> 073 123 45 67</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
 
   <script src="../js/loadNavbar.js"></script>
 </body>

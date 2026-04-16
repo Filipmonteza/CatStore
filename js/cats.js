@@ -37,12 +37,25 @@ function renderCats() {
 
     const imageUrl = cat.reference_image_id
       ? `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
-      : "https://via.placeholder.com/200";
+      : "https://via.placeholder.com/200?text=Image+not+found";
+
+    let fallbackImage = "https://via.placeholder.com/200?text=Image+not+found";
+    
+    if(cat.name === "Bengal") {
+      fallbackImage = "../images/bengal.jpg";
+    }else if(cat.name === "Devon Rex"){
+      fallbackImage = "../images/devonrex.jpg";
+    }
 
     catCard.innerHTML = `
       <h3>${cat.name}</h3>
       <p>Ursprung: ${cat.origin}</p>
-      <img src="${imageUrl}" alt="${cat.name}">
+      <img 
+        src="${imageUrl}"
+        alt="${cat.name}"
+        loading="lazy"
+        onerror="this.onerror=null; this.src='${fallbackImage}';"
+      >
       <button onclick="addToCart('${cat.name}')">Lägg i kundvagn</button>
     `;
 
@@ -56,3 +69,28 @@ function renderCats() {
 document.addEventListener("DOMContentLoaded", () => {
   fetchCats();
 });
+
+// PrevBtn och NextBtn för att navigera mellan sidorna
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderCats();
+  }});
+  
+document.getElementById("nextBtn").addEventListener("click", () => {
+  const totalPages = Math.ceil(filteredCats.length / itemsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderCats();
+  }});
+
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    
+    filteredCats = cats.filter(cat => cat.name.toLowerCase()
+    .includes(searchTerm));
+
+    currentPage = 1;
+    renderCats();
+  });
+    
