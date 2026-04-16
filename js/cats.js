@@ -39,6 +39,14 @@ function renderCats() {
       ? `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
       : "https://via.placeholder.com/200?text=Image+not+found";
 
+    let fallbackImage = "https://via.placeholder.com/200?text=Image+not+found";
+    
+    if(cat.name === "Bengal") {
+      fallbackImage = "../images/bengal.jpg";
+    }else if(cat.name === "Devon Rex"){
+      fallbackImage = "../images/devonrex.jpg";
+    }
+
     catCard.innerHTML = `
       <h3>${cat.name}</h3>
       <p>Ursprung: ${cat.origin}</p>
@@ -46,7 +54,7 @@ function renderCats() {
         src="${imageUrl}"
         alt="${cat.name}"
         loading="lazy"
-        onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Image+not+found';"
+        onerror="this.onerror=null; this.src='${fallbackImage}';"
       >
       <button onclick="addToCart('${cat.name}')">Lägg i kundvagn</button>
     `;
