@@ -83,3 +83,14 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     currentPage++;
     renderCats();
   }});
+
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    
+    filteredCats = cats.filter(cat => cat.name.toLowerCase()
+    .includes(searchTerm));
+
+    currentPage = 1;
+    renderCats();
+  });
+    
