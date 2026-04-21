@@ -21,7 +21,7 @@ header {
 }
 
 nav {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -206,19 +206,51 @@ button:hover {
 
 /* CART */
 #cartList {
-  margin-top: 1rem;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+#cartList p {
+  color: var(--ink-mute);
+  font-style: italic;
+
 }
 
 .cart-item {
-  background: #fff;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  margin-bottom: 0;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  border: 1px solid #ece6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  gap: 1rem;
+  animation: fadeUp .25s var(--ease) both;
 }
+
+.cart-item p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--ink);
+  flex: 1;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+
 
 /* OWNERS SECTION */
 .owners-section {

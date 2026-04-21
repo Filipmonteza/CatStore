@@ -1,16 +1,18 @@
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+// function saveCart() {
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
 
-function loadCart() {
-  const savedCart = localStorage.getItem("cart");
-  cart = savedCart ? JSON.parse(savedCart) : [];
-}
+// function loadCart() {
+//   const savedCart = localStorage.getItem("cart");
+//   cart = savedCart ? JSON.parse(savedCart) : [];
+// }
 
 // VISA KUNDVAGN
 function renderCart() {
   const cartList = document.getElementById("cartList");
   if (!cartList) return;
+
+  updateCartBadge(); // Uppdatera badge varje gång vi renderar kundvagnen
 
   cartList.innerHTML = "";
 
@@ -57,10 +59,33 @@ function removeFromCart(index) {
   cart.splice(index, 1);
   saveCart();
   renderCart();
+
+}
+ // UPPDATERA BADGE
+function updateCartBadge() {
+  const badge = document.getElementById("cartBadge");
+  if (!badge) return;
+  const count = cart.length;
+  badge.textContent = count;
+  badge.style.display = count > 0 ? "flex" : "none";
 }
 
+// Spara och ladda kundvagn
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge(); 
+}
 
+// Ladda kundvagn och uppdatera badge
+function loadCart() {
+  const savedCart = localStorage.getItem("cart");
+  cart = savedCart ? JSON.parse(savedCart) : [];
+  updateCartBadge();
+}
+
+// När sidan laddas, ladda kundvagnen och rendera den
 document.addEventListener("DOMContentLoaded", () => {
   loadCart();
   renderCart();
+  updateCartBadge(); // Uppdatera badge när sidan laddas
 });
