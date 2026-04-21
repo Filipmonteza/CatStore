@@ -12,6 +12,16 @@ body {
   font-size: 15px;
 }
 
+:root {
+  --white: #ffffff;
+  --border: #ece6e6;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --r-md: 12px;
+  --ink: #222222;
+  --ink-mute: #888888;
+  --ease: ease;
+}
+
 /* HEADER / NAVBAR */
 header {
   background: #111;
@@ -136,12 +146,14 @@ p {
 }
 
 /* PAGINATION */
+
 .pagination {
+  
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 /* FORMS */
@@ -224,12 +236,13 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   background: var(--white);
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   gap: 1rem;
   animation: fadeUp .25s var(--ease) both;
+  width: fit-content;
 }
 
 .cart-item p {
@@ -328,6 +341,17 @@ button:hover {
 }
 
 /* RESPONSIVE */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 16px;
@@ -359,10 +383,13 @@ button:hover {
     text-align: center;
   }
 
-  .pagination {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  /* .pagination {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+  } */
 
   main {
     padding: 0 1rem;

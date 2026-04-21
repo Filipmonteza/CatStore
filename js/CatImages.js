@@ -15,7 +15,7 @@ async function startSlideshow() {
     imgElement.src = images[index];
     index = (index + 1) % images.length;
     console.log(imgElement.src);
-  }, 10000); // Byt bild var 10:e sekund
+  }, 1000); // Byt bild var 10:e sekund
 }
 
 startSlideshow();
