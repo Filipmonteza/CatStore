@@ -221,7 +221,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: .75rem;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem auto;
+  max-width: 520px;
+  width: 100%;
   text-align: left;
 }
 
@@ -232,17 +234,18 @@ button:hover {
 }
 
 .cart-item {
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--white);
-  padding: 0.75rem 1rem;
-  border-radius: var(--r-md);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  gap: 1rem;
-  animation: fadeUp .25s var(--ease) both;
-  width: fit-content;
+  width: 100%;
+
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #ece6e6;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
 }
 
 .cart-item p {
@@ -250,6 +253,11 @@ button:hover {
   font-size: .95rem;
   color: var(--ink);
   flex: 1;
+}
+
+.cart-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
 .cart-badge {
@@ -263,6 +271,58 @@ button:hover {
   font-size: 0.75rem;
 }
 
+/* ORDER CONFIRMATION */
+
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+#orderConfirmation {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+#orderConfirmation.show {
+  opacity: 1;
+  max-height: 500px;
+  margin-top: 1rem;
+}
+
+.order-card {
+  max-width: 520px;
+  width: 100%;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border: 1px solid #ece6e6;
+  transition: all 0.4s ease;
+  margin: 0 auto;
+}
+
+.confirmation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.checkmark {
+  background: #22c55e;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* OWNERS SECTION */

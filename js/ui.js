@@ -60,13 +60,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const catNames = cart.map(cat => cat.name).join(", ");
 
-      alert(
-        `Orderbekräftelse\n\nNamn: ${name}\nE-post: ${email}\nAdress: ${address}\n\nDu har beställt:\n${catNames}`
-      );
+      // alert(
+      //   `Orderbekräftelse\n\nNamn: ${name}\nE-post: ${email}\nAdress: ${address}\n\nDu har beställt:\n${catNames}`
+      // );
+
+      const orderConfirmation = document.getElementById("orderConfirmation");
+      const receiptContent = document.getElementById("receiptContent"); 
+
+      receiptContent.innerHTML = `
+      <p><strong>Namn:</strong> ${name}</p>
+      <p><strong>E-post:</strong> ${email}</p>
+      <p><strong>Adress:</strong> ${address}</p>
+      <p><strong>Beställda katter:</strong> ${catNames}</p>
+      `;
+
+      orderForm.style.transition = "all 0.4s ease";
+      orderForm.style.opacity = "0";
+      orderForm.style.maxHeight = "0";
+      orderForm.style.overflow = "hidden";
+
+      setTimeout(() => {
+        orderForm.style.display = "none";
+
+        orderConfirmation.classList.remove("hidden");
+        orderConfirmation.classList.add("show");
+      }, 300);
 
       cart = [];
       saveCart();
       renderCart();
+      
       e.target.reset();
     });
   }

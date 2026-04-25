@@ -33,6 +33,7 @@ function renderCart() {
      */
     item.innerHTML = `
       <p><strong>${cat.name}</strong> - ${cat.origin}
+     
       <button onclick="removeFromCart('${cat.name}')">Ta bort</button>
       </p>
     `;

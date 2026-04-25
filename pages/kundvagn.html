@@ -14,12 +14,27 @@
     <h2>Kundvagn</h2>
     <div id="cartList"></div>
 
-    <form id="orderForm">
+    <div class="order-card" id="orderCard">
+      
+       <form id="orderForm">
       <input type="text" id="customerName" placeholder="Namn" required />
       <input type="email" id="customerEmail" placeholder="E-post" required />
       <textarea id="customerAddress" placeholder="Leveransadress" required></textarea>
       <button type="submit">Skicka order</button>
     </form>
+    
+    <div id="orderConfirmation" class="hidden">
+      <div class="confirmation-header">
+        <span class="checkmark">✓</span>
+        <h3>Tack för din beställning!</h3>
+      </div>
+         
+      <p>Vi har tagit emot din order och skickar en bekräftelse via e-post.</p>
+
+       <div id="receiptContent"></div>
+    </div>
+   </div>    
+   
   </main>
 
   <script src="../js/loadNavbar.js"></script>
