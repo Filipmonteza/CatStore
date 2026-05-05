@@ -18,7 +18,7 @@ body {
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
   --r-md: 12px;
   --ink: #222222;
-  --ink-mute: #888888;
+  --ink-mute: #666666;
   --ease: ease;
 }
 
@@ -90,7 +90,7 @@ h2 {
 }
 
 p {
-  color: #555;
+  color: var(--ink-mute);
 }
 
 /* PAGE VISIBILITY */
@@ -234,18 +234,11 @@ button:hover {
 }
 
 .cart-item {
-   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  padding: 0.9rem 1.2rem;
-  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
   background: #fff;
-  border: 1px solid #ece6e6;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .cart-item p {
@@ -264,11 +257,25 @@ button:hover {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: red;
+  background: #b91c1c;
   color: white;
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
   font-size: 0.75rem;
+}
+
+.remove-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #d9363e;
 }
 
 /* ORDER CONFIRMATION */
@@ -381,7 +388,7 @@ button:hover {
 
 .owner-info p {
   margin: 0.4rem 0;
-  color: #555;
+  color: var(--ink-mute);
   line-height: 1.5;
 }
 
@@ -442,15 +449,7 @@ button:hover {
     width: 100%;
     text-align: center;
   }
-
-  /* .pagination {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: nowrap;
-  } */
-
+  
   main {
     padding: 0 1rem;
   }
@@ -470,4 +469,25 @@ button:hover {
   #catImage {
     height: 240px;
   }
+}
+
+/* CART ITEM LAYOUT */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BILDEN */
+.cart-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0; /* viktigt! */
+}
+
+/* TEXT */
+.item-info {
+  flex: 1;
 }

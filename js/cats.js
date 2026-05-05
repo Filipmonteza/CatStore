@@ -56,7 +56,9 @@ function renderCats() {
         loading="lazy"
         onerror="this.onerror=null; this.src='${fallbackImage}';"
       >
-      <button onclick="addToCart('${cat.name}')">Lägg i kundvagn</button>
+      <button onclick='addToCart(${JSON.stringify(cat)})'>
+        Lägg i kundvagn
+      </button>
     `;
 
     catList.appendChild(catCard);
