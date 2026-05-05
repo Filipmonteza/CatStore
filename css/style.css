@@ -41,6 +41,7 @@ nav ul {
   list-style: none;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
 }
 
 nav a {
