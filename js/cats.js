@@ -42,10 +42,12 @@ function renderCats() {
     let fallbackImage = "https://via.placeholder.com/200?text=Image+not+found";
     
     if(cat.name === "Bengal") {
-      fallbackImage = "../images/bengal.jpg";
+      fallbackImage = "../images/Bengal.jpg";
     }else if(cat.name === "Devon Rex"){
-      fallbackImage = "../images/devonrex.jpg";
+      fallbackImage = "../images/DevonRex.jpg";
     }
+
+    cat.fallbackImage = fallbackImage;
 
     catCard.innerHTML = `
       <h3>${cat.name}</h3>

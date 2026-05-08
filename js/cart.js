@@ -12,35 +12,41 @@ function renderCart() {
   }
 
   cart.forEach((cat, index) => {
-    const item = document.createElement("div");
-    item.classList.add("cart-item");
+  const item = document.createElement("div");
+  item.classList.add("cart-item");
 
-    item.innerHTML = `
-      <img src="${cat.image}" class="cart-img" />
+  const fallback = cat.fallbackImage || "../images/DevonRex.jpg";
 
-      <div class="item-info">
-        <p><strong>${cat.name}</strong></p>
-        <p>${cat.origin || ""}</p>
-      </div>
+  item.innerHTML = `
+    <img 
+      src="${cat.image}" 
+      class="cart-img"
+      onerror="this.onerror=null; this.src='${fallback}';"
+    />
+    <div class="item-info">
+      <p><strong>${cat.name}</strong></p>
+      <p>${cat.origin || ""}</p>
+    </div>
+    <button class="remove-btn" onclick="removeFromCart(${index})">
+      Ta bort
+    </button>
+  `;
 
-      <button class="remove-btn" onclick="removeFromCart(${index})">
-        Ta bort
-      </button>
-    `;
-
-    cartList.appendChild(item);
-  });
+  cartList.appendChild(item);
+});
 }
 
 // LÄGG TILL I KUNDVAGN
 function addToCart(cat) {
   const imageUrl = cat.reference_image_id
     ? `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
-    : "https://via.placeholder.com/60";
+    : cat.fallbackImage || "https://via.placeholder.com/60";
 
   const cartItem = {
     name: cat.name,
-    image: imageUrl
+    image: imageUrl,
+    origin: cat.origin,
+    fallbackImage: cat.fallbackImage || ""
   };
 
   cart.push(cartItem);
