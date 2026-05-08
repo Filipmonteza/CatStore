@@ -11,11 +11,18 @@ async function startSlideshow() {
 
   const imgElement = document.getElementById("catImage");
 
+  imgElement.src = "DevonRex.jpg"; // Startbild innan API-bilderna laddas
+
+  if (images.length > 0) {
+      imgElement.src = images[0];
+      index = 1;
+    }
+
   setInterval(() => {
     imgElement.src = images[index];
     index = (index + 1) % images.length;
     console.log(imgElement.src);
-  }, 1000); // Byt bild var 10:e sekund
+  }, 10000); // Byt bild var 10:e sekund
 }
 
 startSlideshow();

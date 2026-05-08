@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const catNames = cart.map(cat => cat.name).join(", ");
 
-      // alert(
-      //   `Orderbekräftelse\n\nNamn: ${name}\nE-post: ${email}\nAdress: ${address}\n\nDu har beställt:\n${catNames}`
-      // );
+      alert(
+        `Orderbekräftelse\n\nNamn: ${name}\nE-post: ${email}\nAdress: ${address}\n\nDu har beställt:\n${catNames}`
+      );
 
       const orderConfirmation = document.getElementById("orderConfirmation");
       const receiptContent = document.getElementById("receiptContent"); 

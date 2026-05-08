@@ -1,19 +1,9 @@
-// function saveCart() {
-//   localStorage.setItem("cart", JSON.stringify(cart));
-// }
-
-// function loadCart() {
-//   const savedCart = localStorage.getItem("cart");
-//   cart = savedCart ? JSON.parse(savedCart) : [];
-// }
-
 // VISA KUNDVAGN
 function renderCart() {
   const cartList = document.getElementById("cartList");
   if (!cartList) return;
 
-  updateCartBadge(); // Uppdatera badge varje gång vi renderar kundvagnen
-
+  updateCartBadge();
   cartList.innerHTML = "";
 
   if (cart.length === 0) {
@@ -21,21 +11,21 @@ function renderCart() {
     return;
   }
 
-  cart.forEach(cat => {
+  cart.forEach((cat, index) => {
     const item = document.createElement("div");
     item.classList.add("cart-item");
 
-    /**
-     * För varje katt i kundvagnen skapar vi en div med klass "cart-item". Inuti denna div lägger vi till kattens namn och ursprung,
-     *  samt en knapp för att ta bort katten från kundvagnen.
-     *  När knappen klickas, anropas funktionen removeFromCart med kattens namn som argument,
-     *  vilket tar bort katten från kundvagnen och uppdaterar visningen.
-     */
     item.innerHTML = `
-      <p><strong>${cat.name}</strong> - ${cat.origin}
-     
-      <button onclick="removeFromCart('${cat.name}')">Ta bort</button>
-      </p>
+      <img src="${cat.image}" class="cart-img" />
+
+      <div class="item-info">
+        <p><strong>${cat.name}</strong></p>
+        <p>${cat.origin || ""}</p>
+      </div>
+
+      <button class="remove-btn" onclick="removeFromCart(${index})">
+        Ta bort
+      </button>
     `;
 
     cartList.appendChild(item);
@@ -43,14 +33,19 @@ function renderCart() {
 }
 
 // LÄGG TILL I KUNDVAGN
-function addToCart(catName) {
-  const selectedCat = cats.find(cat => cat.name === catName);
+function addToCart(cat) {
+  const imageUrl = cat.reference_image_id
+    ? `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
+    : "https://via.placeholder.com/60";
 
-  if (selectedCat) {
-    cart.push(selectedCat);
-    saveCart();
-    renderCart();
-  }
+  const cartItem = {
+    name: cat.name,
+    image: imageUrl
+  };
+
+  cart.push(cartItem);
+  saveCart();
+  renderCart();
 }
 
 /*

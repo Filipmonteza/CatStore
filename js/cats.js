@@ -56,10 +56,13 @@ function renderCats() {
         loading="lazy"
         onerror="this.onerror=null; this.src='${fallbackImage}';"
       >
-      <button onclick="addToCart('${cat.name}')">Lägg i kundvagn</button>
+      <button class="add-to-cart-btn">Lägg i kundvagn</button>
     `;
-
-    catList.appendChild(catCard);
+    
+      const btn = catCard.querySelector(".add-to-cart-btn");
+      btn.addEventListener("click", () => addToCart(cat));
+      
+      catList.appendChild(catCard);
   });
 
   const totalPages = Math.ceil(filteredCats.length / itemsPerPage);
